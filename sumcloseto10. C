@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int arr[100], n, i, j, diff, sum, firstElement, secondElement;
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+    printf("Enter %d elements: ", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    diff = abs(arr[0] + arr[1] - 10);
+    firstElement = arr[0];
+    secondElement = arr[1];
+    for (i = 0; i < n - 1; i++) {
+        for (j = i + 1; j < n; j++) {
+            sum = arr[i] + arr[j];
+            int currentDiff = abs(sum - 10);
+            if (currentDiff < diff) {
+                diff = currentDiff;
+                firstElement = arr[i];
+                secondElement = arr[j];
+            }
+        }
+    }
+    printf("The two elements whose sum is closest to 10 are: %d and %d\n", firstElement, secondElement);
+    return 0;
+}
